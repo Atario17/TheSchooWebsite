@@ -1,13 +1,16 @@
 package com.kondrat.TheSchooWebsite.controllers;
 
+import com.kondrat.TheSchooWebsite.domain.Pupil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.lang.Nullable;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.ui.Model;
-
+import static org.junit.Assert.*;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 class MyModel implements Model {
@@ -56,9 +59,17 @@ class MyModel implements Model {
 @SpringBootTest
 public class SchoolControllerTest {
 
+    @Autowired
+    SchoolController schoolController;
+
     @Test
     public void showListOfPupilsTest(){
-
+        MyModel model = new MyModel();
+        schoolController.showListOfPupils(model);
+        List<Pupil> pupils = (List<Pupil>)model.obj;
+        assertNotNull(model.obj);
+        assertTrue(model.obj instanceof List);
+        assertEquals(4, pupils.size());
     }
 
 }
