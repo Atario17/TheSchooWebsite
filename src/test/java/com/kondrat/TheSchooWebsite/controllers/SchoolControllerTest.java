@@ -1,4 +1,4 @@
-package com.kondrat.TheSchooWebsite;
+package com.kondrat.TheSchooWebsite.controllers;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

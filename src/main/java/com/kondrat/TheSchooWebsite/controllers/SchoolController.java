@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SchoolController {
 
+
     @GetMapping("/allPupils")
     public String showListOfPupils(Model model){
         return "pupils";
