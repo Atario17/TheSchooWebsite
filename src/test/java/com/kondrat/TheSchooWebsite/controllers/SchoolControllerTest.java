@@ -84,4 +84,18 @@ public class SchoolControllerTest {
         assertEquals(4, pupils.size());
     }
 
+    @Test
+    public void addNewPupilsTest(){
+        assertEquals(4, pupilRepository.findAll().size());
+        MyModel model = new MyModel();
+        schoolController.addNewPupils(model, "Лев");
+        assertNotNull(model.obj);
+        assertTrue(model.obj instanceof List);
+        List<Pupil> pupils = (List<Pupil>)model.obj;
+        assertEquals(5, pupilRepository.findAll().size());
+        schoolController.addNewPupils(model, "Лев");
+        assertEquals(5, pupilRepository.findAll().size());
+
+    }
+
 }

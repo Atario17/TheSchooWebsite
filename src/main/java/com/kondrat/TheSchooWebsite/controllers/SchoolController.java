@@ -38,6 +38,8 @@ public class SchoolController {
 
     @GetMapping("/addNewPupils")
         public String addNewPupils(Model model, String name){
+        List<Pupil> pupils = pupilRepository.makeStringsPupils(name);
+        model.addAttribute("list", pupils);
             return "";
         }
     }
