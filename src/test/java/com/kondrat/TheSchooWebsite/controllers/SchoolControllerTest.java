@@ -1,6 +1,7 @@
 package com.kondrat.TheSchooWebsite.controllers;
 
 import com.kondrat.TheSchooWebsite.domain.Pupil;
+import com.kondrat.TheSchooWebsite.repository.PupilRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,9 +62,12 @@ public class SchoolControllerTest {
 
     @Autowired
     SchoolController schoolController;
+    @Autowired
+    PupilRepository pupilRepository;
 
     @Test
     public void showListOfPupilsTest(){
+        assertEquals(4, pupilRepository.findAll().size());
         MyModel model = new MyModel();
         schoolController.showListOfPupils(model);
         List<Pupil> pupils = (List<Pupil>)model.obj;
