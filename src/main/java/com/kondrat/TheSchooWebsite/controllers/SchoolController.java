@@ -32,11 +32,13 @@ public class SchoolController {
     @GetMapping("/allPupils")
     public String showListOfPupils(Model model){
         List<Pupil> allPupils = pupilRepository.findAll();
-//        List<String> allNamesOfPupils = new ArrayList<>();
-//        for(Pupil pupil : allPupils){
-//            allNamesOfPupils.add(pupil.getName());
-//        }
         model.addAttribute("list", allPupils);
         return "pupils";
     }
-}
+
+    @GetMapping("/addNewPupils")
+        public String addNewPupils(Model model, String name){
+            return "";
+        }
+    }
+
