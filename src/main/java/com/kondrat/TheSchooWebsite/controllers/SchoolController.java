@@ -19,10 +19,10 @@ public class SchoolController {
 
     @PostConstruct
     public void fullListOfPupils(){
-        Pupil pupil1 = new Pupil("Константин");
-        Pupil pupil2 = new Pupil("Дмитрий");
-        Pupil pupil3 = new Pupil("София");
-        Pupil pupil4 = new Pupil("Елена");
+        Pupil pupil1 = new Pupil("Константин", 1);
+        Pupil pupil2 = new Pupil("Дмитрий",2);
+        Pupil pupil3 = new Pupil("София",3);
+        Pupil pupil4 = new Pupil("Елена",4);
         pupilRepository.save(pupil1);
         pupilRepository.save(pupil2);
         pupilRepository.save(pupil3);

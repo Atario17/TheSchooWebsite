@@ -11,8 +11,9 @@ public class Pupil {
     public Pupil(){
     }
 
-    public Pupil(String name) {
+    public Pupil(String name, int id) {
         this.name = name;
+        this.id = id;
     }
 
     public String getName() {
