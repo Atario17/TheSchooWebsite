@@ -1,5 +1,7 @@
 package com.kondrat.TheSchooWebsite.repository;
 
+import com.kondrat.TheSchooWebsite.controllers.SchoolController;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,15 @@ import static org.junit.Assert.*;
 public class PupilRepositoryTest {
     @Autowired
     PupilRepository pupilRepository;
+    @Autowired
+    SchoolController schoolController;
+    @Before
+    public void setUp() throws Exception{
+        pupilRepository.deleteAll();
+        pupilRepository.flush();
+        schoolController.fullListOfPupils();
+
+    }
 
     @Test
     public void makeStringsPupils(){

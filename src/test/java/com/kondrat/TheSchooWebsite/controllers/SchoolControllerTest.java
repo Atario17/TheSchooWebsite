@@ -2,6 +2,7 @@ package com.kondrat.TheSchooWebsite.controllers;
 
 import com.kondrat.TheSchooWebsite.domain.Pupil;
 import com.kondrat.TheSchooWebsite.repository.PupilRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,13 +65,20 @@ public class SchoolControllerTest {
     SchoolController schoolController;
     @Autowired
     PupilRepository pupilRepository;
+    @Before
+    public void setUp() throws Exception{
+        pupilRepository.deleteAll();
+        pupilRepository.flush();
+        schoolController.fullListOfPupils();
+
+    }
 
     @Test
-    public void showListOfPupilsTest(){
+    public void showListOfPupilsTest() {
         assertEquals(4, pupilRepository.findAll().size());
         MyModel model = new MyModel();
         schoolController.showListOfPupils(model);
-        List<Pupil> pupils = (List<Pupil>)model.obj;
+        List<Pupil> pupils = (List<Pupil>) model.obj;
         assertNotNull(model.obj);
         assertTrue(model.obj instanceof List);
         assertEquals(4, pupils.size());
