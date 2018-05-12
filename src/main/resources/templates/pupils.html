@@ -11,6 +11,12 @@
         <td th:text = "${pupil.name}"></td>
     </tr>
     </tbody>
+
 </table>
+<form action="/addNewPupils" method="post">
+    <p><strong>Новые ученики</strong></p>
+    <p><input type = "text" placeholder="Введите новое имя" maxlength="50" size="40" name="name"> </p>
+    <p><input type="submit" value="Отправить" ></p>
+</form>
 </body>
 </html>

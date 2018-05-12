@@ -9,7 +9,7 @@ import java.util.List;
 public interface PupilRepository extends JpaRepository<Pupil, Integer> {
 
     default List<Pupil>  makeStringsPupils(String name) {
-        List<Pupil> pupils = new ArrayList<>();
+
         boolean pupilPresent = false;
         Pupil pupil = new Pupil(name, (int) (Math.random() * 1000000));
         for (Pupil pupil1 : findAll()) {
@@ -23,8 +23,8 @@ public interface PupilRepository extends JpaRepository<Pupil, Integer> {
             }
         }if(!pupilPresent){
             save(pupil);
-        }pupils.add(pupil);
-        return pupils;
+        }
+        return findAll();
     }
 
 }
