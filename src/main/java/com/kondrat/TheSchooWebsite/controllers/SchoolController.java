@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -39,7 +38,7 @@ public class SchoolController {
 
     @PostMapping("/addNewPupils")
         public String addNewPupils(Model model, String name){
-        List<Pupil> pupils = pupilRepository.makeStringsPupils(name);
+        List<Pupil> pupils = pupilRepository.createIfNotExists(name);
         model.addAttribute("list", pupils);
             return "pupils";
         }
